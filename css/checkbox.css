@@ -1,0 +1,28 @@
+.checkbox-row {
+    display: flex;
+    gap: 1rem;
+    margin-bottom: 1rem; /* Ajusta el margen inferior según sea necesario */
+  }
+  
+  /* Estilos opcionales para mejorar la apariencia */
+  label {
+    display: flex;
+    align-items: center;
+    cursor: pointer; /* Añadido para indicar que los labels son clicables */
+  }
+  
+  input[type="checkbox"] {
+    margin-right: 0rem; /* Espacio entre el checkbox y el texto del label */
+    /* Oculta el checkbox visualmente, pero mantiene la accesibilidad */
+    /* position: absolute; */
+    /* opacity: 0; */
+  }
+  
+  /* Estilo para resaltar el label cuando el checkbox está enfocado */
+  input[type="checkbox"]:focus + label {
+    outline: 2px solid #4CAF50; /* Puedes ajustar el color según tus preferencias */
+  }
+  .mg-botom{
+    margin-bottom: 1rem;
+  }
+  

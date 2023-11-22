@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html>
+<head>
+	
+	<title>Mapa de entrevistas</title>
+    <link rel="shortcut icon" href="/img/favicon.png">
+
+	<meta charset="utf-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.0.3/dist/leaflet.css"/>
+     <!-- Make sure     you put this AFTER Leaflet's CSS -->
+ <script defer src="https://unpkg.com/leaflet@1.0.3/dist/leaflet.js"></script>
+
+ <script src="http://cdn.leafletjs.com/leaflet/v1.0.3/leaflet.js"></script>
+
+    <link rel="stylesheet" href="css/style.css"/>
+	<link rel="stylesheet" href="css/style-accordion.css" />
+	<link rel="stylesheet" href="css/combobox.css" />
+    <link rel="stylesheet" href="css/checkbox.css" />
+
+</head>
+<body>
+        <div class="miheader centrar">
+            <a tabindex="1" id="inicio" class="accesible" aria-label="">
+                <div class="mg-botom">
+                    <h2>Previo a la inundación</h2> <br>
+                </div>
+                <div class="centrar">
+                    <h1>Conociendo el territorio</h1>
+                </div>
+
+
+            </a> <!--Mapa de entrevistados   - A continuación se listas las 6 entrevistas en el mapa de entrevistados-->
+            <!-- <div class="header-right">     
+                <a tabindex="1" role="button" href="language.html" class="button" aria-label="Haga click para cambiar el idioma de la página">Idioma</a>
+            </div> -->
+        </div>
+        <div class="group-search">
+            <div class="search">
+                <div tabindex="1" class="search-title" aria-label="" alt="" id="comboSearch1"><h2>Elegir ubicación:</h2></div>
+                <div class="combo js-select">
+                    <div aria-controls="listbox1" aria-expanded="false" aria-haspopup="listbox" aria-labelledby="combo1-label" id="combo1" class="combo-input" role="combobox" tabindex="1"></div>
+                    <div class="combo-menu" role="listbox" id="listbox1">
+                    <!-- opciones zonas: cargo por js -->
+                    </div>
+                </div>
+            </div>
+            <div class="search2">
+                <div tabindex="1" class="search-title" aria-label="" alt="" id="comboSearch2"><h2>Datos a adquirir:</h2></div>
+                <div class="checkbox-row">
+                   
+                        <input tabindex="1" id="peligrosidad" type="checkbox" name="peligrosidad" value="peligrosidad" />
+                        <label for="peligrosidad">Peligrosidad</label>
+                        <input tabindex="1" id="lugares" type="checkbox" name="lugares" value="lugares" />
+                        <label for="lugares">Lugares</label>
+                        <input tabindex="1" id="opiniones" type="checkbox" name="opiniones" value="opiniones" />
+                        <label for="opiniones">Opiniones</label>
+                </div>
+                  
+            </div>
+        </div>
+        <div class="space-ajust" style="background-color: blueviolet;"></div>
+    <main>
+        <section class="home">
+            <div id="mapid"></div>
+            <div id="desc">
+                <h1 id="title-info">Acceso a la entrevista</h1> <!--  -->
+                
+                <br>
+                <div id="info" aria-hidden="true">
+                    <div class="centrar">
+                        <h1 class="text" id="tituloinicial" aria-hidden="true">Haga click en alguna persona dentro del mapa para obtener mas información de la misma.</h1>   <!--Click on an avatar on the map to get more information about it.-->
+                    </div>
+                    <div class="centrar text">
+                        <h1 tabindex="0" for="name" id="label1" style="visibility:hidden">Entrevista a </h1> <!--Interview to-->
+                       <!-- <h1 id="texto0" tabindex="0" class="text"></h1> -->
+                    </div>
+                    <div class="centrar text">
+                        <h1 tabindex="0" for="name" id="label2" style="visibility:hidden">De </h1> 
+                        <!--<h1 id="texto1" class="text" tabindex="0"></h1>-->
+                    </div>
+                    <div class="centrar">
+                        <div id="accordionGroup" class="accordion" style="visibility: hidden;">
+                        <button id="accordion-open-1" class="accordion__button" aria-expanded="false">
+                        Mas información de la zona
+                        </button>
+                        <div id="accordion-section-1" class="accordion__section" aria-hidden="true">
+                        <h1>Situación al 2 de abril del 2013</h1> <!--informacion por defecto-->
+                        <p>
+                            Esta zona registró en algunos sectores un nivel de severidad Leve.
+                        </p>  
+                        <p>
+                            Esto significa una dificultad para caminar.
+                        </p>
+                        <p>
+                            El caudal de precipitaciones maximo registrado es de ...
+                        </p>
+                        <p>
+                            El nivel maximo de profundidad de inundación fue de 0.80 a 1.20 metros. 
+                        </p>
+                        </div>
+                    </div>
+                    </div>
+                    <hr role=”separator” id="separator" style="visibility: hidden;"> 
+                    <!--Accesible Media Player: por defecto no tiene nada y esta en español-->
+                    <div class="mediaplayer">
+                        <iframe id="video" class="myplayer" tabindex=0 src="" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                    </div>
+                    <button aria-label="Presione enter para volver al mapa." alt="Presione enter para volver al mapa." tabindex="0" type="button" id="boton" class='ocultar-visualmente2' style="visibility:hidden" role="button" >Volver al mapa</button> <!-- go back to map - Press enter to return to the map.-->
+                </div>
+            </div>    
+        </section>
+    
+    </main>
+    <footer aria-hidden="true">
+        <div class="footer__texto">&copy; 2022 | All rights reserved</div>
+    </footer>
+    <!-- comienzo de los script -->
+    <script defer src="./js/index.js"></script>
+    <script defer src="./js/map.js" type="module"></script>
+    <script defer src="./js/accordion.js"></script>
+    <script defer src="./js/combobox.js" type="module"></script>
+    <!-- scripts media player-->
+    <script defer src="./js/strings.js"></script>
+
+</body>
+</html>
